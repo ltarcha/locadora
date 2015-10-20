@@ -15,7 +15,7 @@ public class Veiculo {
 	private String acessorios;
 	private String chassi;
 	private String cidade;
-	private String km;
+	private int km;
 	private String estado;
 	private String modelo;
 	private String fabricante;
@@ -58,10 +58,11 @@ public class Veiculo {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public String getKm() {
+	
+	public int getKm() {
 		return km;
 	}
-	public void setKm(String km) {
+	public void setKm(int km) {
 		this.km = km;
 	}
 	public String getEstado() {

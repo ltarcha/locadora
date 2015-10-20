@@ -1,6 +1,8 @@
 package br.com.locadora.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -17,17 +19,18 @@ public class Emprestimo {
 	private String cpf;
 	private String localEmp;
 	private String localDev;
-	private String tarifa;
+	@Enumerated(EnumType.STRING)
+	private TarifaType tarifa;
 	private String formaPagamento;
 	
 	
 	public Emprestimo() {
 
 	}
-
+	
 	public Emprestimo(int id, int idCliente, int idVeiculo, String data,
 			String dataDevolucao, String cpf, String localEmp, String localDev,
-			String tarifa, String formaPagamento) {
+			TarifaType tarifa, String formaPagamento) {
 		super();
 		this.id = id;
 		this.idCliente = idCliente;
@@ -40,6 +43,9 @@ public class Emprestimo {
 		this.tarifa = tarifa;
 		this.formaPagamento = formaPagamento;
 	}
+
+
+
 
 	public int getId() {
 		return id;
@@ -105,13 +111,18 @@ public class Emprestimo {
 		this.localDev = localDev;
 	}
 
-	public String getTarifa() {
+
+	public TarifaType getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifa(String tarifa) {
+
+
+	public void setTarifa(TarifaType tarifa) {
 		this.tarifa = tarifa;
 	}
+
+
 
 	public String getFormaPagamento() {
 		return formaPagamento;
@@ -120,6 +131,8 @@ public class Emprestimo {
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -130,8 +143,6 @@ public class Emprestimo {
 				+ ", tarifa=" + tarifa + ", formaPagamento=" + formaPagamento
 				+ "]";
 	}
-	
-	
-	
+
 
 }

@@ -21,7 +21,7 @@
 
 				<div class="col-md-2 ">
 					<font><b>ID veiculo: </b></font><br>
-				    <input type="text" class="form-control" name="idVeiculo" required="required" value="${idveiculo}" disabled="disabled"> 
+				    <input type="text" class="form-control" name="idVeiculo" required="required" value="${idveiculo}" readonly="readonly"> 
 				</div>
  
 				<div class="col-md-2 ">
@@ -29,11 +29,11 @@
 					<input type="text" maxlength="9"  class="form-control" name="idCliente" required="required">
 				</div>
 
-				<div class="col-md-3 ">
+				<div class="col-md-2 ">
 					<font><b>Data Emprestimo: </b></font><br> <input type="text" required="required" maxlength="11"	class="form-control" name="data">
 				</div>
  
-				<div class="col-md-3 ">
+				<div class="col-md-2 ">
 					<font><b>Data Devolução: </b></font><br>
 					<input type="text" required="required" maxlength="8" class="form-control" name="dataDevolucao">
 				</div>
@@ -48,7 +48,7 @@
 					<input type="text" required="required" class="form-control" name="cpf">
 				</div>
 				
-				<div class="col-md-1 ">
+				<div class="col-md-2 ">
 					<font><b>Email: </b></font><br> 
 					<input type="text" required="required"	class="form-control" name="email">
 				</div>
@@ -68,7 +68,7 @@
 					<input type="text" required="required" class="form-control" name="tarifa">
 				</div>
 				
-				<div class="col-md-1 ">
+				<div class="col-md-2 ">
 					<font><b>Pagamento: </b></font><br>
 					<input type="text" required="required"	class="form-control" name="formaPagamento">
 				</div>

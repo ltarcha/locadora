@@ -29,5 +29,11 @@ public class VeiculoDAO {
 		
 		return lista;
 	}
+	
+	public Veiculo getVeiculo(int id){
+		 
+		return em.find(Veiculo.class, id);
+		
+	}
 
 }

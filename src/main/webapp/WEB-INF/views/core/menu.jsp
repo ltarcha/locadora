@@ -32,7 +32,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="${pageContext.request.contextPath}/cadastro-cliente">Cadastrar Cliente</a></li>
             <li><a href="${pageContext.request.contextPath}/cadastro-veiculo">Veiculos</a></li>
-            <li><a href="#">Devolver veiculo</a></li>
+            <li><a href="${pageContext.request.contextPath}/devolucao">Devolver veiculo</a></li>
             <li><a href="${pageContext.request.contextPath}/emprestar">Emprestar Veiculo</a></li>
             <li><a href="#">News</a></li>
             <li><a href="contact.html">Contact</a></li>

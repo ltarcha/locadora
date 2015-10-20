@@ -6,23 +6,17 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.locadora.model.Emprestimo;
+import br.com.locadora.model.Devolucao;
 
-@Repository("emprestimoDAO")
-public class EmprestimoDAO {
-
+@Repository("devolucaoDAO")
+public class DevolucaoDAO {
+	
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Transactional
-	public void EmpresimoSave(Emprestimo emprestimo){
-		em.persist(emprestimo);
-	}
-	
-	public Emprestimo getEmprestimo (int id){
-		
-		return em.find(Emprestimo.class, id);
-		
+	public void insertDevolucao(Devolucao devolucao){
+		em.persist(devolucao);
 	}
 	
 }
