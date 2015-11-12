@@ -14,11 +14,19 @@
   <body>
     
     <jsp:include page="core/menu.jsp"></jsp:include>
-
+    
+    <div class="container">
+	    <c:if test="${idEmp != null}">
+		    <div class="alert alert-success" role="alert">
+		  		<a href="#" class="alert-link">Emprestimo realizado com sucesso! ID: ${idEmp }</a>
+			</div>
+	    </c:if>
+    </div>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/tdv/js/controller/home-controller.js"></script>
   </body>
 </html>

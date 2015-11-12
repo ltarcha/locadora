@@ -1,6 +1,8 @@
 package br.com.locadora.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +37,20 @@ public class CalculaMultaService {
 		
 		Multa multaPorKm = calculaKmControlado(emp, dev);
 		
+		Multa multaCidade = calculaCidadeDiferente(emp, dev);
+		
+		Multa multaAtraso = calculaDiasAtrasados(emp, dev);
+		
 		if(multaPorKm != null){
 			lista.add(multaPorKm);
+		}
+		
+		if(multaCidade != null){
+			lista.add(multaCidade);
+		}
+		
+		if(multaAtraso != null){
+			
 		}
 		
 		return lista;
@@ -70,4 +84,52 @@ public class CalculaMultaService {
 		
 		return null;
 	}
+	
+	public Multa calculaCidadeDiferente(Emprestimo emp, Devolucao dev){
+		
+		double preco;
+		if(!emp.getLocalDev().equals(dev.getLocal())){
+			preco = calculaKmCidades(emp.getLocalDev(), dev.getLocal());
+			Multa multa = new Multa(emp.getId(), "Devolução em cidade não planejada no emprestimo", preco);
+			return multa;
+		}
+		
+		return null;
+	}
+	
+	public Multa calculaDiasAtrasados(Emprestimo emp, Devolucao dev){
+		
+		String totalDias;
+		if(emp.getDataDevolucao() != dev.getData()){
+			
+			System.out.println("Dia emp: " + dev.getData().substring(0, 2));
+			System.out.println("Mes emp: " + dev.getData().substring(2, 4));
+			System.out.println("Ano emp: " + dev.getData().substring(4, 8));
+			System.out.println("data emp: " + dev.getData());
+			
+		    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");   
+		      
+		    Calendar dts = Calendar.getInstance();  
+		    dts.set(Integer.parseInt(dev.getData().substring(4, 8)), Integer.parseInt(dev.getData().substring(2, 4)), Integer.parseInt(dev.getData().substring(0, 2)));//data retirada - maior  
+		      
+		    Calendar dte = Calendar.getInstance();  
+		    dte.set(Integer.parseInt(emp.getDataDevolucao().substring(4, 8)), Integer.parseInt(emp.getDataDevolucao().substring(2, 4)), Integer.parseInt(emp.getDataDevolucao().substring(0, 2)));// data locação  - menor  
+		      
+		    dts.add(Calendar.DATE, - dte.get(Calendar.DAY_OF_MONTH));  
+		    
+		   // totaldiarias.setText(sdf.format(dts.get(Calendar.DAY_OF_MONTH)));  
+		    totalDias = (sdf.format(dts.get(Calendar.DAY_OF_MONTH)));  
+			
+		    System.out.println(totalDias +  " teste");
+			
+		}
+		
+		return null;
+	}
+	
+	public double calculaKmCidades(String cidade, String cidade2){
+		/*Chumbei 100 KM**/
+		return 100;
+	}
+	
 }

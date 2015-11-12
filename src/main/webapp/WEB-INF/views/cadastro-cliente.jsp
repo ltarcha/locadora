@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
-
+	
     <!-- Bootstrap -->
     <link href="${ pageContext.request.contextPath }/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -35,7 +35,7 @@
  
 				<div class="col-md-2 ">
 					<font><b>Data Nacimento: </b></font><br>
-					<input type="text" required="required" maxlength="8" class="form-control" name="dtNasc">
+					<input type="text" id="campoData" required="required" maxlength="8" class="form-control" name="dtNasc">
 				</div>
 				
 				<div class="col-md-2">
@@ -84,19 +84,22 @@
 				<div class="col-md-2">
 					<a class="btn btn-default"
 					   href="${pageContext.request.contextPath}/">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						Cancelar
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>	Cancelar
 					</a>
 				</div>
-				
-
 			</form>
-	
 	</div>
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<%--     <script src="${pageContext.request.contextPath}/resources/jquery.min.1.11.1.js"></script> --%>
+    <script src="${pageContext.request.contextPath}/resources/jquery.mask.js"></script>
+    <script >
+	    jQuery(function($){
+		       $("#campoData").mask("99/99/9999");
+		});
+	</script>
   </body>
 </html>

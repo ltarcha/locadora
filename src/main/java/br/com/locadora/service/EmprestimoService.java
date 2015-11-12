@@ -14,7 +14,7 @@ public class EmprestimoService {
 	@Qualifier("emprestimoDAO")
 	private EmprestimoDAO dao;
 	
-	public void emprestimoSave(Emprestimo emprestimo){
-		dao.EmpresimoSave(emprestimo);
+	public int emprestimoSave(Emprestimo emprestimo){
+		return dao.EmpresimoSave(emprestimo);
 	}
 }

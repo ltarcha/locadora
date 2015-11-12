@@ -49,6 +49,7 @@ public class EmprestimoController {
 	public ModelAndView emprestimoSave(Emprestimo emprestimo){
 		ModelAndView mv = new ModelAndView("home");
 		emprestimoService.emprestimoSave(emprestimo);
+		mv.addObject("idEmp", emprestimo.getId());
 		return mv;
 	}
 			

@@ -15,8 +15,9 @@ public class EmprestimoDAO {
 	private EntityManager em;
 	
 	@Transactional
-	public void EmpresimoSave(Emprestimo emprestimo){
+	public int EmpresimoSave(Emprestimo emprestimo){
 		em.persist(emprestimo);
+		return emprestimo.getId();
 	}
 	
 	public Emprestimo getEmprestimo (int id){
